@@ -83,7 +83,7 @@ function(ryppl_add_pch_to_target target header)
 
     add_custom_command(OUTPUT ${pch_binary} 	
       COMMAND ${CMAKE_CXX_COMPILER} ${CMAKE_CXX_COMPILER_ARG1}
-      ${compile_flags} -x c++-header -o ${pch_binary} ${pch_header}
+      ${compile_flags} -c -x c++-header -o ${pch_binary} ${pch_header}
       )
     set_property(TARGET ${target} APPEND PROPERTY
       COMPILE_FLAGS "-include ${pch_header} -Winvalid-pch"
